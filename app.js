@@ -10,13 +10,14 @@ const bodyparser = require('body-parser')
 const cors=require('cors')
 
 
-
+const mongoose = require('mongoose')
 //create express server
 var app=express();
 
-const mongoose = require('mongoose')
+const DBCONNECTIONSTRING=process.env.MONGO_URI || "mongodb://localhost/zomato"
 
-mongoose.connect('mongodb+srv://SagarP:root@cluster0.z0ild.mongodb.net/zomato',
+mongoose.connect( DBCONNECTIONSTRING,
+    // 'mongodb+srv://SagarP:root@cluster0.z0ild.mongodb.net/zomato',
 ()=>{
     console.log("Mongodb Connected")
 },
